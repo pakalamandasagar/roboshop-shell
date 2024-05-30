@@ -46,21 +46,21 @@ rm -rf /usr/share/nginx/html/* &>> $LOGFILE
 
 VALIDATE $? "removed default website"
 
-curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip &>> $LOGFILE
+curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip 
 
 VALIDATE $? "downloaded web application"
 
 cd /usr/share/nginx/html &>> $LOGFILE
 
-VALIDATE $? "moving nginx html directory'
+VALIDATE $? "moving nginx html directory"
 
 unzip -o /tmp/web.zip &>> $LOGFILE
 
 VALIDATE $? "unzipping web"
 
-cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOGFILE
+cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf 
 
-VALIDATE $? "copied roboshop reverse proxy config"
+VALIDATE $? "copied roboshop reverse proxy config" 
 
 systemctl restart nginx &>> $LOGFILE
 
