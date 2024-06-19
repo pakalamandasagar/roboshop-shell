@@ -11,8 +11,8 @@ do
     then
         INSTANCE_TYPE="t3.small"
     else
-        INSTANCE_TYPE="t2.small"
+        INSTANCE_TYPE="t2.micro"
     fi
 
-    aws ec2 run-instances --image-id ami-0b4f379183e5706b9 --instance-type $INSTANCE_TYPE --security-group-ids sg-053247f007b858182 --tag-specifications "ResourceType=instance,Tags=[{key=name,Value=$i}]"
+    aws ec2 run-instances --image-id ami-0b4f379183e5706b9 --instance-type $INSTANCE_TYPE --security-group-ids sg-053247f007b858182 --tag-specifications "ResourceType=instance,Tags=[{key=Name,Value=$i}]"
 done
