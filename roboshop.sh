@@ -18,7 +18,7 @@ do
     IP_ADDRESS=$(aws ec2 run-instances --image-id ami-0b4f379183e5706b9 --instance-type $INSTANCE_TYPE --security-group-ids sg-053247f007b858182 --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].PrivateIpAddress' --output text)
     echo "$i: $IP_ADDRESS"
 
-    #Create R53 records, make sure you delete existing record
+    #Create Route53 records, make sure you delete existing record
     aws route53 change-resource-record-sets \
     --hosted-zone-id $ZONE_ID \
     --change-batch '
