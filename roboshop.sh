@@ -28,7 +28,7 @@ do
         "Action"              : "CREATE"
         ,"ResourceRecordSet"  : {
             "Name"              : "'$i'.'$DOMAIN_NAME'"
-            ,"Type"             : "CNAME"
+            ,"Type"             : "A"
             ,"TTL"              : 1
             ,"ResourceRecords"  : [{
                 "Value"         : "'$IP_ADDRESS'"
